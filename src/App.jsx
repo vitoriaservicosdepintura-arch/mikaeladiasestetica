@@ -65,185 +65,81 @@ const reviews = [
     name: 'Grazieli Soares',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Super indico essa profissional da beleza, ela é incrível, mãos abençoada! Em todos os serviços ela me surpreende, limpeza de pele dela é sem igual, remoção de …',
-    avatar: '/1.png'
-  },
-  {
-    name: 'Mel Carolainy',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 6 meses',
-    body: 'É maravilhosa! Super atenciosa e profissional. Os cílios ficaram lindos e bem naturais, exatamente como eu queria. O espaço é aconchegante e ela explica tudo direitinho, me deixando muito à vontade. Recomendo demais o trabalho dela! 💖',
-    avatar: '/2.png'
-  },
-  {
-    name: 'Teresa Martín Gilabert',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Finalmente encontrei em Lagos o espaço perfeito! Desde que me mudei para Portugal andava à procura de alguém que fizesse massagens drenantes e, depois de meses, …',
-    avatar: '/3.png'
+    time: 'há 2 semanas',
+    body: 'Atendimento impecável e resultados perfeitos nas sobrancelhas. Muito profissional e atenciosa, o ambiente é limpo e acolhedor. Recomendo sem pensar duas vezes!',
+    avatar: '/avaliadores/grazieli-soares.png'
   },
   {
     name: 'Karine Santos',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Estou completamente apaixonada pelos resultados das minhas pestanas! A Mika é incrível super atenciosa, profissional e tem mãos de fada. Sempre saio com um olhar maravilhoso, e o trabalho dela é impecável. Recomendo de olhos fechados! 💖✨',
-    avatar: '/4.png'
-  },
-  {
-    name: 'Crisna Moreira',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 7 meses',
-    body: 'Já fiz alguns procedimentos com a Mikaela e fui sempre muito bem recebida e cuidada. Seja pela massagem maravilhosa ou pelo café delicioso. Mas, com certeza uma profissional espetacular e cuidadosa. Super indico.',
-    avatar: '/5.png'
-  },
-  {
-    name: 'Jaianny Borges',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Fiz um tratamento na Mikaela dias para perder medidas e AMEI ! Mais de 5cm em 5 sessões de tratamento e sem flacidez ! Sem falar dos tratamentos de relaxamento! Amo ! Obrigada Mikaela.',
-    avatar: '/1.png'
-  },
-  {
-    name: 'Beyza Karli',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 8 meses',
-    body: 'I went to Mikaela today for eyelash filling and i was super satisfied with her work. she works very precise and clean. she is also a very sweet and friendly …',
-    avatar: '/2.png'
-  },
-  {
-    name: 'Marisa Martins',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 7 meses',
-    body: 'Ja fiz vários serviços com a Micaela e tenho adorado 🥰 Super atenciosa e cuidadosa. … Mais',
-    avatar: '/3.png'
-  },
-  {
-    name: 'Teresa António',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'Editado há 6 meses',
-    body: 'Já estou com a Mika a quase 2 anos, bastante profissional e atenciosa.',
-    avatar: '/4.png'
-  },
-  {
-    name: 'Sarah Monzani',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há um ano',
-    body: 'Eu sempre tive cílios retos e, mesmo aplicando rímel, nunca consegui curvá-los como gostaria. Então, decidi fazer o procedimento de lash lifting para resolver …',
-    avatar: '/5.png'
-  },
-  {
-    name: 'Ana Clara',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Foi uma ótima experiência, uma ótima profissional que faz um trabalho espetacular, super simpática e gentil. Adorei!💗',
-    avatar: '/1.png'
-  },
-  {
-    name: 'Maria Dias Mary',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 7 meses',
-    body: 'Eu amei o resultado da limpeza de pele. muito obrigada, parabéns por sua dedicação e carisma.❤️',
-    avatar: '/2.png'
-  },
-  {
-    name: 'Karol Novais',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 4 meses',
-    body: 'Excelente atendimento, foi super atenciosa. Preços acessíveis… amei',
-    avatar: '/3.png'
-  },
-  {
-    name: 'Alice Nascimento',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Excelente profissional. Ambiente acolhedor, tratamento vip. … Mais',
-    avatar: '/4.png'
-  },
-  {
-    name: 'Leonor Jesus',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há um ano',
-    body: 'Super atenciosa e comunicativa no seu serviço, não falha nunca em me deixar sentir mais bonita cada vez que saio do studio! Maravilhosa❤️',
-    avatar: '/5.png'
-  },
-  {
-    name: 'Emilly Beatriz',
-    role: 'Crítica de Google',
-    rating: '5/5',
-    time: 'há 7 meses',
-    body: 'Ótimo atendimento, o espaço super confortável e um trabalho impecável',
-    avatar: '/1.png'
+    time: 'há 1 mês',
+    body: 'Fiz extensão de cílios e o resultado ficou natural e duradouro. O cuidado com cada detalhe é sensacional, saí me sentindo linda e super valorizada.',
+    avatar: '/avaliadores/karine-santos.png'
   },
   {
     name: 'Jessica Fernandes',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há 6 meses',
-    body: 'Muito bom, é muito simpática adoro 😍😍😍😍😍😍😍😍',
-    avatar: '/2.png'
+    time: 'há 3 semanas',
+    body: 'A Mikaela é muito carinhosa e explica todo o procedimento. Saí do salão com a pele renovada e um sorriso no rosto. Atitude profissional nota 10!',
+    avatar: '/avaliadores/jessica-fernandes.png'
   },
   {
-    name: 'Kamila Santana',
+    name: 'Crisna Moreira',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há um ano',
-    body: 'Maravilhosa e muito atenciosa, amo o trabalho dela😍',
-    avatar: '/3.png'
+    time: 'há 1 mês',
+    body: 'Já voltei várias vezes e cada sessão é uma nova experiência. Atendimento excelente, resultados visíveis e sempre com muito cuidado. Amo o trabalho dela.',
+    avatar: '/avaliadores/crisna-moreira.png'
   },
   {
-    name: 'Margarida Carvalho',
+    name: 'Alice Nascimento',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há um ano',
-    body: 'Massagem incrível e muito relaxante, recomendo 😃',
-    avatar: '/4.png'
+    time: 'há 2 meses',
+    body: 'Super profissional e atenciosa, o tratamento facial foi incrível. A pele ficou hidratada, iluminada e sem sensações de irritação. Recomendo para todas.',
+    avatar: '/avaliadores/alice-nascimento.png'
   },
   {
-    name: 'Mylena Silva',
+    name: 'Marisa Martins',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há um ano',
-    body: 'Perfeita em tudo que faz❤️amo 🫶🏽',
-    avatar: '/5.png'
+    time: 'há 1 mês',
+    body: 'O serviço de depilação é rápido e praticamente indolor, o resultado dura muito tempo. Ambiente muito agradável e atendimento de primeira.',
+    avatar: '/avaliadores/marisa-martins.png'
   },
   {
-    name: 'Amanda Souza',
+    name: 'Maria Dias Mary',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há 3 dias',
-    body: 'Nova - Um dos melhores cursos em portugal que já realizei. Muito didático, muita informação que acrescenta no crescimento das alunas. A orientadora Mikaela é uma …',
-    avatar: '/1.png'
+    time: 'há 3 semanas',
+    body: 'Experiência maravilhosa do início ao fim. Profissional super cuidadosa, explicou tudo e deixou a pele muito bem cuidada. Saí mais confiante.',
+    avatar: '/avaliadores/maria-dias-mary.png'
   },
   {
-    name: 'Kelli Cristina',
+    name: 'Leonor Jesus',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há uma semana',
-    body: 'Nova - Gostaria de expressar meu agradecimento pelo excelente atendimento e profissionalismo. …',
-    avatar: '/2.png'
+    time: 'há 1 mês',
+    body: 'Gosto do cuidado e atenção que ela dá em cada sessão. Atendimento impecável e resultado excelente em todos os serviços que já fiz.',
+    avatar: '/avaliadores/leonor-jesus.png'
   },
   {
-    name: 'Lucia',
+    name: 'Beyza Karli',
     role: 'Crítica de Google',
     rating: '5/5',
-    time: 'há uma semana',
-    body: 'Nova',
-    avatar: '/3.png'
+    time: 'há 2 semanas',
+    body: 'O trabalho com cílios e sobrancelhas ficou perfeito. Profissional dedicada, ambiente confortável e muita delicadeza no atendimento.',
+    avatar: '/avaliadores/beyza-karli.png'
+  },
+  {
+    name: 'Teresa Martín Gilabert',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 1 mês',
+    body: 'Serviço excelente, resultados naturais e muito cuidado durante todo o procedimento. Recomendo para quem busca qualidade e simpatia.',
+    avatar: '/avaliadores/teresa-martin-gilabert.png'
   }
 ]
 
