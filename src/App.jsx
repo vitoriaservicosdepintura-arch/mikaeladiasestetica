@@ -297,7 +297,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
 function Hero() {
   return (
-    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-black">
         <motion.video
           initial={{ scale: 1.1, opacity: 0 }}
@@ -621,7 +621,7 @@ function ReviewsSection() {
           <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">O que dizem sobre o nosso trabalho</h2>
         </motion.div>
 
-        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
+        <div className="relative flex h-[420px] md:h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
           <Marquee pauseOnHover className="w-full py-4">
             <div className="flex items-center gap-4 px-4">
               {firstRow.map((review, index) => (
@@ -650,7 +650,7 @@ function ReviewCard({ review }) {
   return (
     <motion.figure
       whileHover={{ y: -4, scale: 1.01 }}
-      className="relative w-64 cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:bg-slate-900/90"
+      className="relative min-w-[18rem] max-w-sm w-full cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:bg-slate-900/90"
     >
       <div className="flex items-center gap-3">
         <img
