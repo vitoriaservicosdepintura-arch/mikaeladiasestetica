@@ -206,7 +206,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 function Hero() {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-background">
+      <div className="absolute inset-0 bg-black">
         <motion.video
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -220,8 +220,7 @@ function Hero() {
         >
           <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" type="video/mp4" />
         </motion.video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
+        {/* O vídeo agora está 100% visível, sem película branca por cima */}
       </div>
 
       <motion.div
