@@ -11,33 +11,47 @@ const services = [
 ]
 
 const prices = [
-  { category: "Drenagem Linfática", items: [
-    { name: "Por Zona (30min)", price: "30€" },
-    { name: "Corpo Inteiro (60min)", price: "50€" },
-  ]},
-  { category: "Massagem Relaxante", items: [
-    { name: "Por Zona (30min)", price: "30€" },
-    { name: "Corpo Inteiro (60min)", price: "50€" },
-  ]},
-  { category: "Massagem Terapêutica", items: [
-    { name: "Por Zona (30min)", price: "35€" },
-  ]},
-  { category: "Massagem Modeladora", items: [
-    { name: "Por Zona (30min)", price: "35€" },
-  ]},
-  { category: "Massagem Deep Tissue", items: [
-    { name: "Corpo Inteiro (60min)", price: "60€" },
-  ]},
-  { category: "Reflexologia", items: [
-    { name: "30min", price: "25€" },
-  ]},
-  { category: "Massagens Especiais", items: [
-    { name: "Cavitação (Por Zona 30min)", price: "35€" },
-    { name: "Radiofrequência (Por Zona 30min)", price: "35€" },
-    { name: "Vacuoterapia (Por Zona 30min)", price: "35€" },
-    { name: "Massagem com Pedras Quentes (Por Zona 30min)", price: "35€" },
-    { name: "Ventosaterapia (Por Zona 30min)", price: "35€" },
-  ]},
+  {
+    category: "Drenagem Linfática", items: [
+      { name: "Por Zona (30min)", price: "30€" },
+      { name: "Corpo Inteiro (60min)", price: "50€" },
+    ]
+  },
+  {
+    category: "Massagem Relaxante", items: [
+      { name: "Por Zona (30min)", price: "30€" },
+      { name: "Corpo Inteiro (60min)", price: "50€" },
+    ]
+  },
+  {
+    category: "Massagem Terapêutica", items: [
+      { name: "Por Zona (30min)", price: "35€" },
+    ]
+  },
+  {
+    category: "Massagem Modeladora", items: [
+      { name: "Por Zona (30min)", price: "35€" },
+    ]
+  },
+  {
+    category: "Massagem Deep Tissue", items: [
+      { name: "Corpo Inteiro (60min)", price: "60€" },
+    ]
+  },
+  {
+    category: "Reflexologia", items: [
+      { name: "30min", price: "25€" },
+    ]
+  },
+  {
+    category: "Massagens Especiais", items: [
+      { name: "Cavitação (Por Zona 30min)", price: "35€" },
+      { name: "Radiofrequência (Por Zona 30min)", price: "35€" },
+      { name: "Vacuoterapia (Por Zona 30min)", price: "35€" },
+      { name: "Massagem com Pedras Quentes (Por Zona 30min)", price: "35€" },
+      { name: "Ventosaterapia (Por Zona 30min)", price: "35€" },
+    ]
+  },
 ]
 
 const stats = [
@@ -68,19 +82,19 @@ function App() {
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <Navigation isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrollToSection={scrollToSection} />
-      
+
       <Hero />
-      
+
       <Stats />
-      
+
       <Services />
-      
+
       <About />
-      
+
       <Pricing />
-      
+
       <Contact />
-      
+
       <Footer />
 
       <motion.a
@@ -101,7 +115,7 @@ function App() {
           </div>
           <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
             </svg>
           </div>
         </motion.div>
@@ -120,13 +134,13 @@ function App() {
 
 function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSection }) {
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-lg' : 'bg-background/50'}`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <motion.div 
+        <motion.div
           className="cursor-pointer flex items-center gap-3"
           whileHover={{ scale: 1.02 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -147,7 +161,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
               whileHover={{ y: -2 }}
             >
               {item}
-              <motion.span 
+              <motion.span
                 className="absolute -bottom-1 left-0 h-0.5 bg-primary"
                 initial={{ width: 0 }}
                 whileHover={{ width: '100%' }}
@@ -157,7 +171,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
           ))}
         </div>
 
-        <button 
+        <button
           className="md:hidden text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -167,7 +181,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -191,7 +205,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
 function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-background">
         <motion.video
           initial={{ scale: 1.1, opacity: 0 }}
@@ -210,13 +224,13 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         className="relative z-10 text-center px-6 max-w-4xl mx-auto"
       >
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -224,12 +238,12 @@ function Hero() {
         >
           Estética Facial e Corporal
         </motion.p>
-        
+
         <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl italic text-foreground mb-8 leading-tight">
           Beleza que<br />transforma
         </h1>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
@@ -238,7 +252,7 @@ function Hero() {
           Tratamentos exclusivos de estética facial e corporal para revelar a sua melhor versão. Expertise e cuidado em cada detalhe.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
@@ -262,7 +276,7 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -295,7 +309,7 @@ function Stats() {
               viewport={{ once: true, margin: "-100px" }}
               className="text-center"
             >
-              <motion.p 
+              <motion.p
                 className="font-heading text-4xl md:text-5xl italic text-primary mb-2"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -314,11 +328,11 @@ function Stats() {
 
 function Services() {
   const galleryImages = ['/1.png', '/2.png', '/3.png', '/4.png', '/5.png']
-  
+
   return (
     <section id="services" className="relative py-20 md:py-32 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -413,7 +427,7 @@ function About() {
           >
             <div className="liquid-glass-strong p-8 md:p-12 rounded-3xl">
               <div className="grid grid-cols-2 gap-6">
-                <motion.div 
+                <motion.div
                   className="text-center p-4"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -421,21 +435,21 @@ function About() {
                   <p className="font-body font-300 text-muted-foreground text-sm">Rua Francisco Xavier Ataíde de Oliveira, lote 33</p>
                   <p className="font-body font-300 text-muted-foreground text-sm">8600-775 Lagos</p>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-center p-4"
                   whileHover={{ scale: 1.05 }}
                 >
                   <Phone className="w-6 h-6 mx-auto mb-3 text-primary" />
                   <p className="font-body font-300 text-muted-foreground text-sm">+351 912 808 295</p>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-center p-4"
                   whileHover={{ scale: 1.05 }}
                 >
                   <Mail className="w-6 h-6 mx-auto mb-3 text-primary" />
                   <p className="font-body font-300 text-muted-foreground text-sm">myki.htinha@gmail.com</p>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-center p-4"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -457,7 +471,7 @@ function Pricing() {
     <section id="pricing" className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -508,7 +522,7 @@ function Contact() {
     <section id="contact" className="relative py-20 md:py-32 bg-card overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
       <div className="max-w-4xl mx-auto px-6 relative">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -525,12 +539,12 @@ function Contact() {
           className="liquid-glass-strong p-8 md:p-12 rounded-3xl"
         >
           {submitted ? (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-12"
             >
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
@@ -637,7 +651,7 @@ function Footer() {
               whileHover={{ scale: 1.1, color: '#D4AF37' }}
               className="liquid-glass p-3 rounded-full text-foreground transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
             </motion.a>
           </div>
         </div>
