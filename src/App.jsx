@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, MapPin, Phone, Mail, Clock, ChevronDown, Sparkles, Heart, Eye, Wind } from 'lucide-react'
 import FluidCursor from './components/FluidCursor'
 import CursorToggleSection from './components/CursorToggleSection'
+import FluidSimulation from './components/FluidSimulation'
 
 const stats = [
   { value: '500+', label: 'Clientes Satisfeitos' },
