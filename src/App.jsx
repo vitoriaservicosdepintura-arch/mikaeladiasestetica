@@ -519,16 +519,21 @@ function About() {
             <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body font-300">Sobre nós</p>
             <h2 className="font-heading text-4xl md:text-5xl italic text-foreground mb-8">Expertise em<br />beleza e cuidado</h2>
             <p className="font-body font-300 text-muted-foreground leading-relaxed mb-6">
-              O Studio Mikaela Dias iniciou no dia 5 de Março de 2024, no conforto do meu quarto de casa. Começámos apenas com massagens, extensão de pestanas e lifting de pestanas.
+              O Studio Mikaela Dias Iniciou na data do dia 5 de Março de 2024 no quarto da minha casa, apenas com algumas Massagens, Extensão de Pestanas  e Lifting de Pestanas, aos poucos fui aprimorando e adicionando alguns serviços na Área do facial como Dermaplaning, Hidragloss e Limpeza de Pele, pelos quais comecei logo a me apaixonar pela área do facial.
             </p>
             <p className="font-body font-300 text-muted-foreground leading-relaxed mb-6">
-              Ao longo do ano, fui me especializando na área da Limpeza de Pele, fazendo duas formações adicionais para me sentir mais segura e confiante no serviço. Esta especialização permitiu-me oferecer tratamentos mais eficientes e personalizados.
+              Ao longo do ano fui me especializando na área da Limpeza de Pele a fim de me tornar mais prática e eficiente no serviço, foi aí que fiz mais 2 formações para me sentir mais segura e confiante. Para além das especializações da Limpeza de Pele ainda consegui adicionar outros serviços corporais como por exemplo Massagem com Pedras Quentes, Radiofrequência, Cavitação e Vacuoterapia.
             </p>
             <p className="font-body font-300 text-muted-foreground leading-relaxed mb-6">
-              Para além das especializações em limpeza de pele, consegui adicionar outros serviços corporais, como massagem com pedras quentes, ampliando ainda mais a variedade de tratamentos oferecidos.
+              Hoje, conto com os seguintes serviços disponíveis para marcação.
+            </p>
+            <p className="font-body font-300 text-muted-foreground leading-relaxed mb-6">
+              <strong>Massagens:</strong><br />
+              Massagem Relaxante, Massagem Terapêutica, Massagem Profunda, Massagem Modeladora, Anticelulítica, Drenagem Linfática, Pós Operatório, Massagem com Pedras Quentes, Ventosaterapia, Radiofrequência, Cavitação, Vacuoterapia, Reflexologia Podal e Detox Corporal.
             </p>
             <p className="font-body font-300 text-muted-foreground leading-relaxed">
-              Localizada em Lagos, a clínica proporciona um ambiente sofisticado e acolhedor, onde cada tratamento é uma experiência única de cuidado e relaxamento.
+              <strong>Facial:</strong><br />
+              Extensão de Pestanas, Lifting de Pestanas, Dermaplaning, Limpeza de Pele, Hidragloss e Nanopigmentação Labial, Henna Labial e Designer de Sobrancelhas.
             </p>
           </motion.div>
 
