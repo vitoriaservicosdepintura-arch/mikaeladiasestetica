@@ -254,7 +254,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
           <span className="font-heading text-2xl italic text-white hidden sm:block">Mikaela Dias</span>
         </motion.div>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex landscape:flex items-center gap-8">
           {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item, index) => (
             <motion.a
               key={item}
@@ -279,7 +279,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
         <button
           type="button"
-          className="md:hidden text-white"
+          className="md:hidden landscape:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={mobileMenuOpen}
@@ -294,7 +294,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
+            className="md:hidden landscape:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item) => (
               <a
