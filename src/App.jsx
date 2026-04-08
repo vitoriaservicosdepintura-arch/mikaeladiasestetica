@@ -172,6 +172,8 @@ function App() {
           <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full border-8 border-transparent border-l-white"></div>
         </motion.div>
       </motion.a>
+
+      <FluidSimulation />
     </div>
   )
 }
