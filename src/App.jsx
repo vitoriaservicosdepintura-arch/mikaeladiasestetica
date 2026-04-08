@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, MapPin, Phone, Mail, Clock, ChevronDown, Sparkles, Heart, Eye, Wind } from 'lucide-react'
-import InteractiveGallery from './components/InteractiveGallery'
 import FluidSimulation from './components/FluidSimulation'
 
 const stats = [
@@ -97,8 +96,6 @@ function App() {
           <Services />
 
           <About />
-
-          <Gallery />
 
           <Pricing />
 
@@ -471,42 +468,6 @@ function About() {
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function Gallery() {
-  const galleryImages = [
-    '/gallery-1.png',
-    '/gallery-2.png',
-    '/gallery-3.png',
-    '/gallery-4.png',
-    '/gallery-5.png'
-  ]
-
-  return (
-    <section id="gallery" className="relative py-20 md:py-32 bg-background/50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body font-300">Galeria</p>
-          <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">Momentos de<br />Beleza e Transformação</h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <InteractiveGallery images={galleryImages} className="w-full" />
-        </motion.div>
       </div>
     </section>
   )
