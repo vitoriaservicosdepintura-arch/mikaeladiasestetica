@@ -708,6 +708,9 @@ function Pricing() {
 }
 
 function ReviewsSection() {
+  const firstRow = reviews.slice(0, Math.ceil(reviews.length / 2));
+  const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
+
   return (
     <section id="reviews" className="relative py-20 md:py-32 bg-card overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent" />
@@ -722,35 +725,68 @@ function ReviewsSection() {
           <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">O que dizem sobre o nosso trabalho</h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {reviews.map((review, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              whileHover={{ y: -6, boxShadow: '0 24px 60px rgba(0, 0, 0, 0.08)' }}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-background/80 p-6 backdrop-blur-xl"
-            >
-              <div className="flex items-center gap-4 mb-5">
-                <img src={review.avatar} alt={review.name} className="h-14 w-14 rounded-full object-cover" />
-                <div>
-                  <p className="font-heading text-lg italic text-foreground">{review.name}</p>
-                  <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-300">{review.role}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-primary mb-4">
-                <span>{review.rating}</span>
-                <span>·</span>
-                <span>{review.time}</span>
-              </div>
-              <p className="font-body font-300 text-muted-foreground leading-relaxed">{review.body}</p>
-            </motion.div>
-          ))}
+        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border md:shadow-xl bg-background">
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {firstRow.map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
+          </Marquee>
+
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {secondRow.map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
+          </Marquee>
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background" />
         </div>
       </div>
     </section>
+  )
+}
+
+function ReviewCard({ review }) {
+  return (
+    <motion.div
+      whileHover={{ y: -6, boxShadow: '0 24px 60px rgba(0, 0, 0, 0.08)' }}
+      className="flex-shrink-0 w-80 mx-4 relative overflow-hidden rounded-3xl border border-white/10 bg-background/80 p-6 backdrop-blur-xl"
+    >
+      <div className="flex items-center gap-4 mb-5">
+        <img src={review.avatar} alt={review.name} className="h-14 w-14 rounded-full object-cover" />
+        <div>
+          <p className="font-heading text-lg italic text-foreground">{review.name}</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-300">{review.role}</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2 text-sm font-medium text-primary mb-4">
+        <span>{review.rating}</span>
+        <span>·</span>
+        <span>{review.time}</span>
+      </div>
+      <p className="font-body font-300 text-muted-foreground leading-relaxed">{review.body}</p>
+    </motion.div>
+  )
+}
+
+function Marquee({ children, reverse = false, pauseOnHover = false, className = "" }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div 
+      className={`overflow-hidden ${className}`}
+      onMouseEnter={() => pauseOnHover && setIsHovered(true)}
+      onMouseLeave={() => pauseOnHover && setIsHovered(false)}
+    >
+      <motion.div
+        className="flex w-[200%]"
+        animate={isHovered ? {} : { x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        {children}
+        {children}
+      </motion.div>
+    </div>
   )
 }
 
