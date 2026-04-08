@@ -193,8 +193,11 @@ function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-background">
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        <motion.video
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -202,9 +205,9 @@ function Hero() {
           poster="/1.png"
         >
           <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10" />
+        </motion.video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
       </div>
 
       <motion.div 
