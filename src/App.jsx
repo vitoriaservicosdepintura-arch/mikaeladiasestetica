@@ -608,14 +608,14 @@ function ReviewsSection() {
   const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
   return (
-    <section id="reviews" className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section id="reviews" className="relative py-12 md:py-20 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent" />
       <div className="max-w-6xl mx-auto px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 md:mb-24"
+          className="text-center mb-10 md:mb-14"
         >
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body font-300">Avaliações do Google</p>
           <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">O que dizem sobre o nosso trabalho</h2>
