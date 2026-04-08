@@ -104,7 +104,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
-              onClick={() => scrollToSection(item.toLowerCase().replace(' ', item === 'Preços' ? 'pricing' : item === 'Contacto' ? 'contact' : item === 'Início' ? 'hero' : item))}
+              onClick={() => scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact')}
               className="text-sm font-body font-300 text-foreground/80 hover:text-primary transition-colors uppercase tracking-wider relative"
               whileHover={{ y: -2 }}
             >
@@ -138,7 +138,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
             {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase().replace(' ', item === 'Preços' ? 'pricing' : item === 'Contacto' ? 'contact' : item === 'Início' ? 'hero' : item))}
+                onClick={() => scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact')}
                 className="block w-full text-left px-6 py-4 text-sm font-body font-300 text-foreground/80 hover:text-foreground transition-colors uppercase tracking-wider border-b border-border/50 last:border-0"
               >
                 {item}
