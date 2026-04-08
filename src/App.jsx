@@ -64,8 +64,14 @@ const prices = [
 
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowSplash(false), 4000)
+    return () => window.clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +85,14 @@ function App() {
     const element = document.getElementById(id)
     if (element) element.scrollIntoView({ behavior: 'smooth' })
     setMobileMenuOpen(false)
+  }
+
+  if (showSplash) {
+    return (
+      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <img src="/1.png" alt="Mikaela Dias" className="max-w-full max-h-full object-contain" />
+      </div>
+    )
   }
 
   return (
