@@ -45,8 +45,22 @@ const FluidSimulation = ({
     };
 
     // Get WebGL context (WebGL1 or WebGL2)
-    const { gl, ext } = getWebGLContext(canvas);
+    let gl;
+    let ext;
+    try {
+      const result = getWebGLContext(canvas);
+      gl = result.gl;
+      ext = result.ext;
+    } catch (error) {
+      console.error('FluidSimulation init error:', error);
+      return;
+    }
+
     if (!gl || !ext) return;
+    if (!ext.formatRGBA || !ext.formatRG || !ext.formatR) {
+      console.warn('FluidSimulation disabled: required WebGL texture formats are unavailable.');
+      return;
+    }
 
     // If no linear filtering, reduce resolution
     if (!ext.supportLinearFiltering) {
@@ -1086,16 +1100,15 @@ const FluidSimulation = ({
     }
 
     // -------------------- Event Listeners --------------------
-    window.addEventListener("mousedown", (e) => {
+    const handleMouseDown = (e) => {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       updatePointerDownData(pointer, -1, posX, posY);
       clickSplat(pointer);
-    });
+    };
 
-    // Start rendering on first mouse move
-    function handleFirstMouseMove(e) {
+    const handleFirstMouseMove = (e) => {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
@@ -1103,19 +1116,17 @@ const FluidSimulation = ({
       updateFrame();
       updatePointerMoveData(pointer, posX, posY, color);
       document.body.removeEventListener("mousemove", handleFirstMouseMove);
-    }
-    document.body.addEventListener("mousemove", handleFirstMouseMove);
+    };
 
-    window.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e) => {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       const color = pointer.color;
       updatePointerMoveData(pointer, posX, posY, color);
-    });
+    };
 
-    // Start rendering on first touch
-    function handleFirstTouchStart(e) {
+    const handleFirstTouchStart = (e) => {
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
@@ -1125,44 +1136,53 @@ const FluidSimulation = ({
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
       document.body.removeEventListener("touchstart", handleFirstTouchStart);
-    }
-    document.body.addEventListener("touchstart", handleFirstTouchStart);
+    };
 
-    window.addEventListener(
-      "touchstart",
-      (e) => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-        }
-      },
-      false,
-    );
+    const handleTouchStart = (e) => {
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      }
+    };
 
-    window.addEventListener(
-      "touchmove",
-      (e) => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerMoveData(pointer, posX, posY, pointer.color);
-        }
-      },
-      false,
-    );
+    const handleTouchMove = (e) => {
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerMoveData(pointer, posX, posY, pointer.color);
+      }
+    };
 
-    window.addEventListener("touchend", (e) => {
+    const handleTouchEnd = (e) => {
       const touches = e.changedTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
-    });
+    };
+
+    window.addEventListener("mousedown", handleMouseDown);
+    document.body.addEventListener("mousemove", handleFirstMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    document.body.addEventListener("touchstart", handleFirstTouchStart);
+    window.addEventListener("touchstart", handleTouchStart, false);
+    window.addEventListener("touchmove", handleTouchMove, false);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("mousedown", handleMouseDown);
+      document.body.removeEventListener("mousemove", handleFirstMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("touchstart", handleFirstTouchStart);
+      window.removeEventListener("touchstart", handleTouchStart, false);
+      window.removeEventListener("touchmove", handleTouchMove, false);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
 
     // Add watchers for prop changes
     // In React, use useEffect for prop changes
