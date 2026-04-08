@@ -712,7 +712,7 @@ function ReviewsSection() {
   const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
   return (
-    <section id="reviews" className="relative py-20 md:py-32 bg-card overflow-hidden">
+    <section id="reviews" className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent" />
       <div className="max-w-6xl mx-auto px-6 relative">
         <motion.div
@@ -725,21 +725,25 @@ function ReviewsSection() {
           <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">O que dizem sobre o nosso trabalho</h2>
         </motion.div>
 
-        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border md:shadow-xl bg-background">
-          <Marquee pauseOnHover className="[--duration:20s]">
-            {firstRow.map((review, index) => (
-              <ReviewCard key={index} review={review} />
-            ))}
+        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
+          <Marquee pauseOnHover className="w-full py-4">
+            <div className="flex items-center gap-4 px-4">
+              {firstRow.map((review, index) => (
+                <ReviewCard key={index} review={review} />
+              ))}
+            </div>
           </Marquee>
 
-          <Marquee reverse pauseOnHover className="[--duration:20s]">
-            {secondRow.map((review, index) => (
-              <ReviewCard key={index} review={review} />
-            ))}
+          <Marquee reverse pauseOnHover className="w-full py-4">
+            <div className="flex items-center gap-4 px-4">
+              {secondRow.map((review, index) => (
+                <ReviewCard key={index} review={review} />
+              ))}
+            </div>
           </Marquee>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-slate-950 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-slate-950 to-transparent" />
         </div>
       </div>
     </section>
@@ -749,25 +753,23 @@ function ReviewsSection() {
 function ReviewCard({ review }) {
   return (
     <motion.figure
-      whileHover={{ scale: 1.02 }}
-      className="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-background/80 p-4 backdrop-blur-xl hover:bg-background/90 dark:border-white/10 dark:bg-background/80 dark:hover:bg-background/90"
+      whileHover={{ y: -4, scale: 1.01 }}
+      className="relative w-64 cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:bg-slate-900/90"
     >
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex items-center gap-3">
         <img
           src={review.avatar}
-          className="rounded-full"
-          width="32"
-          height="32"
+          className="h-10 w-10 rounded-full object-cover"
+          width="40"
+          height="40"
           alt=""
         />
         <div className="flex flex-col">
-          <span className="text-sm font-medium text-foreground">
-            {review.name}
-          </span>
-          <p className="text-xs font-medium text-muted-foreground">{review.role}</p>
+          <span className="text-sm font-semibold text-white">{review.name}</span>
+          <p className="text-xs text-slate-400">{review.role}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm text-muted-foreground">{review.body}</blockquote>
+      <blockquote className="mt-4 text-sm leading-6 text-slate-300">{review.body}</blockquote>
     </motion.figure>
   )
 }
