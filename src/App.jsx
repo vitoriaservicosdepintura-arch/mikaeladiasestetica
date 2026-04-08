@@ -116,23 +116,14 @@ function App() {
             transition={{ delay: 1 }}
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               className="relative"
             >
-              <motion.div
-                className="absolute -top-3 -left-3 w-20 h-20 rounded-full overflow-hidden transform -translate-y-full"
-                animate={{ rotate: [0, 360] }}
-                transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
-              >
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#D4AF37]/25 via-transparent to-[#D4AF37]/10 blur-2xl" />
-                <div className="absolute inset-1 rounded-full border border-[#D4AF37]/30" />
-              </motion.div>
               <div className="absolute -top-2 -left-2 w-16 h-16 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-full border-2 border-primary shadow-lg">
                 <img src="/1.png" alt="Mikaela Dias" className="w-full h-full object-cover" />
               </div>
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg relative overflow-hidden">
-                <div className="absolute inset-0 rounded-full bg-[#D4AF37]/20 blur-xl" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
               </div>
