@@ -147,6 +147,9 @@ const reviews = [
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showWhatsAppPhoto, setShowWhatsAppPhoto] = useState(false)
+
+  const whatsappLink = 'https://wa.me/351912808295?text=Ol%C3%A1%20Mikaela%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -190,37 +193,43 @@ function App() {
 
           <Footer />
 
-          <motion.a
-            href="https://wa.me/351912808295?text=Olá%20Mikaela,%20gostaria%20de%20mais%20informações"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-50 group"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="relative"
+          <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+            {showWhatsAppPhoto && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                className="w-48 sm:w-56 rounded-3xl bg-white/95 border border-slate-200 shadow-2xl overflow-hidden"
+              >
+                <img src="/1.png" alt="Mikaela Dias" className="w-full h-40 object-cover" />
+                <div className="p-3">
+                  <p className="font-body font-semibold text-slate-900">Mikaela Dias</p>
+                  <p className="text-xs text-slate-500 leading-relaxed mt-1">Toque no botão abaixo para abrir o WhatsApp.</p>
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-green-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-green-600"
+                  >
+                    Abrir WhatsApp
+                  </a>
+                </div>
+              </motion.div>
+            )}
+
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowWhatsAppPhoto((prev) => !prev)}
+              className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-xl ring-2 ring-white"
+              aria-label="Abrir WhatsApp"
             >
-              <div className="absolute -top-2 -left-2 w-16 h-16 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-full border-2 border-primary shadow-lg">
-                <img src="/1.png" alt="Mikaela Dias" className="w-full h-full object-cover" />
-              </div>
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 10 }}
-              whileHover={{ opacity: 1, x: 0 }}
-              className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg whitespace-nowrap text-sm font-medium pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              Falar com Mikaela Dias
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full border-8 border-transparent border-l-white"></div>
-            </motion.div>
-          </motion.a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </motion.button>
+          </div>
 
           {/* <FluidSimulation /> */}
         </motion.div>
