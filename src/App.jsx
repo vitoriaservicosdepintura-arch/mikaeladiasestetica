@@ -137,7 +137,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-lg' : 'bg-background/50'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'}`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
@@ -146,7 +146,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img src="/logo.webp" alt="Mikaela Dias" className="h-12 w-auto" />
-          <span className="font-heading text-2xl italic text-foreground hidden sm:block">Mikaela Dias</span>
+          <span className="font-heading text-2xl italic text-white hidden sm:block">Mikaela Dias</span>
         </motion.div>
 
         <div className="hidden md:flex items-center gap-8">
@@ -157,12 +157,12 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
               onClick={() => scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact')}
-              className="text-sm font-body font-300 text-foreground/80 hover:text-primary transition-colors uppercase tracking-wider relative"
+              className="text-sm font-body font-300 text-white/90 hover:text-[#D4AF37] transition-colors uppercase tracking-wider relative"
               whileHover={{ y: -2 }}
             >
               {item}
               <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                className="absolute -bottom-1 left-0 h-0.5 bg-[#D4AF37]"
                 initial={{ width: 0 }}
                 whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
@@ -172,7 +172,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
         </div>
 
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -233,12 +233,12 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="text-sm uppercase tracking-[0.3em] text-primary mb-6 font-body font-300"
+          className="text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-6 font-body font-400 font-bold drop-shadow-md"
         >
           Estética Facial e Corporal
         </motion.p>
 
-        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl italic text-foreground mb-8 leading-tight">
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl italic text-[#D4AF37] mb-8 leading-tight drop-shadow-lg">
           Beleza que<br />transforma
         </h1>
 
@@ -246,7 +246,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="text-lg md:text-xl font-body font-300 text-muted-foreground max-w-2xl mx-auto mb-12"
+          className="text-lg md:text-xl font-body font-400 text-[#D4AF37] max-w-2xl mx-auto mb-12 drop-shadow-md brightness-110"
         >
           Tratamentos exclusivos de estética facial e corporal para revelar a sua melhor versão. Expertise e cuidado em cada detalhe.
         </motion.p>
@@ -260,7 +260,7 @@ function Hero() {
           <motion.button
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="liquid-glass-strong px-8 py-4 rounded-full text-foreground font-body font-400 uppercase tracking-wider text-sm"
+            className="liquid-glass-strong px-8 py-4 rounded-full text-white font-body font-400 uppercase tracking-wider text-sm bg-[#D4AF37] hover:bg-[#b8952b] transition-colors"
           >
             Agendar Consulta
           </motion.button>
@@ -268,7 +268,7 @@ function Hero() {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })}
-            className="liquid-glass px-8 py-4 rounded-full text-foreground font-body font-400 uppercase tracking-wider text-sm border border-primary/30"
+            className="liquid-glass px-8 py-4 rounded-full text-[#D4AF37] font-body font-400 uppercase tracking-wider text-sm border border-[#D4AF37]/50 hover:bg-[#D4AF37]/10 transition-colors"
           >
             Ver Preços
           </motion.button>
