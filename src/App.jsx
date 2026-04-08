@@ -338,7 +338,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="text-lg md:text-xl font-body font-400 text-white max-w-2xl mx-auto mb-12 drop-shadow-md"
+          className="text-base md:text-lg lg:text-xl font-body font-semibold text-white max-w-3xl mx-auto mb-12 leading-relaxed tracking-wide drop-shadow-xl"
         >
           Tratamentos exclusivos de estética facial e corporal para revelar a sua melhor versão. Expertise e cuidado em cada detalhe.
         </motion.p>
