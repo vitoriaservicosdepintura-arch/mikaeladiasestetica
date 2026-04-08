@@ -11,26 +11,32 @@ const services = [
 ]
 
 const prices = [
-  { category: "Tratamentos Faciais", items: [
-    { name: "Limpeza Facial", price: "45€" },
-    { name: "Hidratação Facial", price: "55€" },
-    { name: "Tratamento Anti-Aging", price: "70€" },
-    { name: "Micropigmentação", price: "150€" },
+  { category: "Drenagem Linfática", items: [
+    { name: "Por Zona (30min)", price: "30€" },
+    { name: "Corpo Inteiro (60min)", price: "50€" },
   ]},
-  { category: "Tratamentos Corporais", items: [
-    { name: "Massagem Relaxante (60min)", price: "45€" },
-    { name: "Massagem Desportiva", price: "50€" },
-    { name: "Drenagem Linfática", price: "55€" },
-    { name: "Tratamento Redutor", price: "60€" },
+  { category: "Massagem Relaxante", items: [
+    { name: "Por Zona (30min)", price: "30€" },
+    { name: "Corpo Inteiro (60min)", price: "50€" },
   ]},
-  { category: "Cílios e Sobancelhas", items: [
-    { name: "Extensão de Cílios", price: "65€" },
-    { name: "Design de Sobrancelhas", price: "15€" },
-    { name: "Lash Lifting", price: "45€" },
+  { category: "Massagem Terapêutica", items: [
+    { name: "Por Zona (30min)", price: "35€" },
   ]},
-  { category: "Massagem com Pedra Quente", items: [
-    { name: "Massagem com Pedra Quente (60min)", price: "55€" },
-    { name: "Massagem com Pedra Quente (90min)", price: "75€" },
+  { category: "Massagem Modeladora", items: [
+    { name: "Por Zona (30min)", price: "35€" },
+  ]},
+  { category: "Massagem Deep Tissue", items: [
+    { name: "Corpo Inteiro (60min)", price: "60€" },
+  ]},
+  { category: "Reflexologia", items: [
+    { name: "30min", price: "25€" },
+  ]},
+  { category: "Massagens Especiais", items: [
+    { name: "Cavitação (Por Zona 30min)", price: "35€" },
+    { name: "Radiofrequência (Por Zona 30min)", price: "35€" },
+    { name: "Vacuoterapia (Por Zona 30min)", price: "35€" },
+    { name: "Massagem com Pedras Quentes (Por Zona 30min)", price: "35€" },
+    { name: "Ventosaterapia (Por Zona 30min)", price: "35€" },
   ]},
 ]
 
