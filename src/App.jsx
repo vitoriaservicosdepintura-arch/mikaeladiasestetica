@@ -96,7 +96,7 @@ function App() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black overflow-hidden"
         >
           <motion.img
             src="/1.png"
@@ -105,7 +105,8 @@ function App() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="max-w-full max-h-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: '50% 35%' }}
           />
         </motion.div>
       ) : (
