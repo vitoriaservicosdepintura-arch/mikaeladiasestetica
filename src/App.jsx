@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, MapPin, Phone, Mail, Clock, ChevronDown, Sparkles, Heart, Eye, Wind } from 'lucide-react'
-import CursorToggleSection from './components/CursorToggleSection'
 import FluidSimulation from './components/FluidSimulation'
 
 const stats = [
@@ -101,8 +100,6 @@ function App() {
           <Pricing />
 
           <Contact />
-
-          <CursorToggleSection />
 
           <Footer />
 
