@@ -64,14 +64,8 @@ const prices = [
 
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => setShowSplash(false), 4000)
-    return () => window.clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,39 +82,15 @@ function App() {
   }
 
   return (
-    <AnimatePresence mode="wait">
-      {showSplash ? (
-        <motion.div
-          key="splash"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="fixed inset-0 z-50 bg-black overflow-hidden"
-        >
-          <motion.img
-            src="/1.png"
-            alt="Entrada"
-            initial={{ scale: 1.05, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: '50% 35%' }}
-          />
-        </motion.div>
-      ) : (
-        <motion.div
-          key="main"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="min-h-screen bg-background text-foreground font-body"
-        >
-          <Navigation isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrollToSection={scrollToSection} />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="min-h-screen bg-background text-foreground font-body"
+    >
+      <Navigation isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrollToSection={scrollToSection} />
 
-          <Hero />
+      <Hero />
 
           <Stats />
 
@@ -170,9 +140,7 @@ function App() {
 
           {/* <FluidSimulation /> */}
         </motion.div>
-      )}
-    </AnimatePresence>
-  )
+    )
 }
 
 function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSection }) {
