@@ -151,7 +151,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
           whileHover={{ scale: 1.02 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src="/logo.webp" alt="Mikaela Dias" className="h-12 w-auto" />
+          <img src="/logo.png" alt="Mikaela Dias" className="h-12 w-auto" />
           <span className="font-heading text-2xl italic text-white hidden sm:block">Mikaela Dias</span>
         </motion.div>
 

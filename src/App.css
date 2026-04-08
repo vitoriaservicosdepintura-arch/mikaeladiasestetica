@@ -113,8 +113,6 @@
 
   .logo {
     height: 18px;
-    mix-blend-mode: lighten;
-    filter: brightness(1.2) contrast(1.1);
   }
 
   a {
