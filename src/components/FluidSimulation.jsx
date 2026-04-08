@@ -1170,11 +1170,12 @@ const FluidSimulation = ({
   }, [simResolution, dyeResolution, shading]);
 
   return (
-    <div className={`pointer-events-none fixed top-0 left-0 z-50 size-full ${className}`}>
+    <div className={`pointer-events-none fixed inset-0 -z-10 ${className}`}>
       <canvas
         id="fluid"
         ref={canvasRef}
-        className="block h-screen w-screen"
+        className="block h-screen w-screen bg-transparent"
+        style={{ backgroundColor: 'transparent' }}
       />
     </div>
   );
