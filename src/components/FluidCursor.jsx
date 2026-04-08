@@ -7,6 +7,7 @@ function FluidCursor() {
   const circlePos = useRef({ x: 0, y: 0 });
   const circleVel = useRef({ x: 0, y: 0 });
   const animationRef = useRef(null);
+  const hueRef = useRef(0);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -29,8 +30,14 @@ function FluidCursor() {
       circlePos.current.x += circleVel.current.x;
       circlePos.current.y += circleVel.current.y;
 
+      // Animate hue
+      hueRef.current = (hueRef.current + 2) % 360;
+
       cursor.style.transform = `translate(${mousePos.current.x}px, ${mousePos.current.y}px)`;
+      cursor.style.backgroundColor = `hsl(${hueRef.current}, 100%, 50%)`;
+      
       trail.style.transform = `translate(${circlePos.current.x}px, ${circlePos.current.y}px)`;
+      trail.style.background = `hsl(${hueRef.current}, 100%, 60%)`;
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -47,13 +54,22 @@ function FluidCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-[#D4AF37] rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        style={{ transform: 'translate(-50%, -50%)' }}
+        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[9999]"
+        style={{ 
+          transform: 'translate(-50%, -50%)',
+          boxShadow: '0 0 8px rgba(0,0,0,0.3)'
+        }}
       />
       <div
         ref={trailRef}
-        className="fixed top-0 left-0 w-8 h-8 bg-[#D4AF37]/30 rounded-full pointer-events-none z-[9998]"
-        style={{ transform: 'translate(-50%, -50%)', transition: 'transform 0.1s linear' }}
+        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9998]"
+        style={{ 
+          transform: 'translate(-50%, -50%)', 
+          transition: 'transform 0.1s linear',
+          opacity: 0.6,
+          filter: 'blur(2px)',
+          boxShadow: '0 0 20px rgba(0,0,0,0.2)'
+        }}
       />
     </>
   );
