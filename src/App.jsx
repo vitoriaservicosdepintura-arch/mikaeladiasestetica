@@ -748,24 +748,27 @@ function ReviewsSection() {
 
 function ReviewCard({ review }) {
   return (
-    <motion.div
-      whileHover={{ y: -6, boxShadow: '0 24px 60px rgba(0, 0, 0, 0.08)' }}
-      className="flex-shrink-0 w-80 mx-4 relative overflow-hidden rounded-3xl border border-white/10 bg-background/80 p-6 backdrop-blur-xl"
+    <motion.figure
+      whileHover={{ scale: 1.02 }}
+      className="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-background/80 p-4 backdrop-blur-xl hover:bg-background/90 dark:border-white/10 dark:bg-background/80 dark:hover:bg-background/90"
     >
-      <div className="flex items-center gap-4 mb-5">
-        <img src={review.avatar} alt={review.name} className="h-14 w-14 rounded-full object-cover" />
-        <div>
-          <p className="font-heading text-lg italic text-foreground">{review.name}</p>
-          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-300">{review.role}</p>
+      <div className="flex flex-row items-center gap-2">
+        <img
+          src={review.avatar}
+          className="rounded-full"
+          width="32"
+          height="32"
+          alt=""
+        />
+        <div className="flex flex-col">
+          <span className="text-sm font-medium text-foreground">
+            {review.name}
+          </span>
+          <p className="text-xs font-medium text-muted-foreground">{review.role}</p>
         </div>
       </div>
-      <div className="flex items-center gap-2 text-sm font-medium text-primary mb-4">
-        <span>{review.rating}</span>
-        <span>·</span>
-        <span>{review.time}</span>
-      </div>
-      <p className="font-body font-300 text-muted-foreground leading-relaxed">{review.body}</p>
-    </motion.div>
+      <blockquote className="mt-2 text-sm text-muted-foreground">{review.body}</blockquote>
+    </motion.figure>
   )
 }
 
