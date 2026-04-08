@@ -60,6 +60,192 @@ const prices = [
   }
 ]
 
+const reviews = [
+  {
+    name: 'Grazieli Soares',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Super indico essa profissional da beleza, ela é incrível, mãos abençoada! Em todos os serviços ela me surpreende, limpeza de pele dela é sem igual, remoção de …',
+    avatar: '/1.png'
+  },
+  {
+    name: 'Mel Carolainy',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'É maravilhosa! Super atenciosa e profissional. Os cílios ficaram lindos e bem naturais, exatamente como eu queria. O espaço é aconchegante e ela explica tudo direitinho, me deixando muito à vontade. Recomendo demais o trabalho dela! 💖',
+    avatar: '/2.png'
+  },
+  {
+    name: 'Teresa Martín Gilabert',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Finalmente encontrei em Lagos o espaço perfeito! Desde que me mudei para Portugal andava à procura de alguém que fizesse massagens drenantes e, depois de meses, …',
+    avatar: '/3.png'
+  },
+  {
+    name: 'Karine Santos',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Estou completamente apaixonada pelos resultados das minhas pestanas! A Mika é incrível super atenciosa, profissional e tem mãos de fada. Sempre saio com um olhar maravilhoso, e o trabalho dela é impecável. Recomendo de olhos fechados! 💖✨',
+    avatar: '/4.png'
+  },
+  {
+    name: 'Crisna Moreira',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 7 meses',
+    body: 'Já fiz alguns procedimentos com a Mikaela e fui sempre muito bem recebida e cuidada. Seja pela massagem maravilhosa ou pelo café delicioso. Mas, com certeza uma profissional espetacular e cuidadosa. Super indico.',
+    avatar: '/5.png'
+  },
+  {
+    name: 'Jaianny Borges',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Fiz um tratamento na Mikaela dias para perder medidas e AMEI ! Mais de 5cm em 5 sessões de tratamento e sem flacidez ! Sem falar dos tratamentos de relaxamento! Amo ! Obrigada Mikaela.',
+    avatar: '/1.png'
+  },
+  {
+    name: 'Beyza Karli',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 8 meses',
+    body: 'I went to Mikaela today for eyelash filling and i was super satisfied with her work. she works very precise and clean. she is also a very sweet and friendly …',
+    avatar: '/2.png'
+  },
+  {
+    name: 'Marisa Martins',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 7 meses',
+    body: 'Ja fiz vários serviços com a Micaela e tenho adorado 🥰 Super atenciosa e cuidadosa. … Mais',
+    avatar: '/3.png'
+  },
+  {
+    name: 'Teresa António',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'Editado há 6 meses',
+    body: 'Já estou com a Mika a quase 2 anos, bastante profissional e atenciosa.',
+    avatar: '/4.png'
+  },
+  {
+    name: 'Sarah Monzani',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há um ano',
+    body: 'Eu sempre tive cílios retos e, mesmo aplicando rímel, nunca consegui curvá-los como gostaria. Então, decidi fazer o procedimento de lash lifting para resolver …',
+    avatar: '/5.png'
+  },
+  {
+    name: 'Ana Clara',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Foi uma ótima experiência, uma ótima profissional que faz um trabalho espetacular, super simpática e gentil. Adorei!💗',
+    avatar: '/1.png'
+  },
+  {
+    name: 'Maria Dias Mary',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 7 meses',
+    body: 'Eu amei o resultado da limpeza de pele. muito obrigada, parabéns por sua dedicação e carisma.❤️',
+    avatar: '/2.png'
+  },
+  {
+    name: 'Karol Novais',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 4 meses',
+    body: 'Excelente atendimento, foi super atenciosa. Preços acessíveis… amei',
+    avatar: '/3.png'
+  },
+  {
+    name: 'Alice Nascimento',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Excelente profissional. Ambiente acolhedor, tratamento vip. … Mais',
+    avatar: '/4.png'
+  },
+  {
+    name: 'Leonor Jesus',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há um ano',
+    body: 'Super atenciosa e comunicativa no seu serviço, não falha nunca em me deixar sentir mais bonita cada vez que saio do studio! Maravilhosa❤️',
+    avatar: '/5.png'
+  },
+  {
+    name: 'Emilly Beatriz',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 7 meses',
+    body: 'Ótimo atendimento, o espaço super confortável e um trabalho impecável',
+    avatar: '/1.png'
+  },
+  {
+    name: 'Jessica Fernandes',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 6 meses',
+    body: 'Muito bom, é muito simpática adoro 😍😍😍😍😍😍😍😍',
+    avatar: '/2.png'
+  },
+  {
+    name: 'Kamila Santana',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há um ano',
+    body: 'Maravilhosa e muito atenciosa, amo o trabalho dela😍',
+    avatar: '/3.png'
+  },
+  {
+    name: 'Margarida Carvalho',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há um ano',
+    body: 'Massagem incrível e muito relaxante, recomendo 😃',
+    avatar: '/4.png'
+  },
+  {
+    name: 'Mylena Silva',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há um ano',
+    body: 'Perfeita em tudo que faz❤️amo 🫶🏽',
+    avatar: '/5.png'
+  },
+  {
+    name: 'Amanda Souza',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há 3 dias',
+    body: 'Nova - Um dos melhores cursos em portugal que já realizei. Muito didático, muita informação que acrescenta no crescimento das alunas. A orientadora Mikaela é uma …',
+    avatar: '/1.png'
+  },
+  {
+    name: 'Kelli Cristina',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há uma semana',
+    body: 'Nova - Gostaria de expressar meu agradecimento pelo excelente atendimento e profissionalismo. …',
+    avatar: '/2.png'
+  },
+  {
+    name: 'Lucia',
+    role: 'Crítica de Google',
+    rating: '5/5',
+    time: 'há uma semana',
+    body: 'Nova',
+    avatar: '/3.png'
+  }
+]
 
 
 function App() {
@@ -98,6 +284,8 @@ function App() {
           <About />
 
           <Pricing />
+
+          <ReviewsSection />
 
           <Contact />
 
@@ -384,8 +572,11 @@ function Services() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="overflow-hidden rounded-2xl"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 0 0 2px rgba(212, 175, 55, 0.9), 0 0 20px rgba(212, 175, 55, 0.4)',
+                }}
+                className="relative overflow-hidden rounded-2xl border border-transparent transition-all duration-300"
               >
                 <img src={img} alt={`Trabalho ${index + 1}`} className="w-full h-40 object-cover" />
               </motion.div>
@@ -508,6 +699,53 @@ function Pricing() {
                   </div>
                 ))}
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ReviewsSection() {
+  return (
+    <section id="reviews" className="relative py-20 md:py-32 bg-card overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent" />
+      <div className="max-w-6xl mx-auto px-6 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-24"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4 font-body font-300">Avaliações do Google</p>
+          <h2 className="font-heading text-4xl md:text-5xl italic text-foreground">O que dizem sobre o nosso trabalho</h2>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {reviews.map((review, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              whileHover={{ y: -6, boxShadow: '0 24px 60px rgba(0, 0, 0, 0.08)' }}
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-background/80 p-6 backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <img src={review.avatar} alt={review.name} className="h-14 w-14 rounded-full object-cover" />
+                <div>
+                  <p className="font-heading text-lg italic text-foreground">{review.name}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-300">{review.role}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm font-medium text-primary mb-4">
+                <span>{review.rating}</span>
+                <span>·</span>
+                <span>{review.time}</span>
+              </div>
+              <p className="font-body font-300 text-muted-foreground leading-relaxed">{review.body}</p>
             </motion.div>
           ))}
         </div>
