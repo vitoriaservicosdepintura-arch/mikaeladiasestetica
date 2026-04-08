@@ -174,7 +174,7 @@ function App() {
         </motion.div>
       </motion.a>
 
-      <FluidSimulation />
+      {/* <FluidSimulation /> */}
     </div>
   )
 }
