@@ -158,7 +158,10 @@ function App() {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
-    if (element) element.scrollIntoView({ behavior: 'smooth' })
+    if (element) {
+      const offset = Math.max(0, element.getBoundingClientRect().top + window.pageYOffset - 88)
+      window.scrollTo({ top: offset, behavior: 'smooth' })
+    }
     setMobileMenuOpen(false)
   }
 
@@ -229,9 +232,10 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
+      role="navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'}`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <motion.div
           className="cursor-pointer flex items-center gap-3"
           whileHover={{ scale: 1.02 }}
@@ -243,8 +247,9 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
         <div className="hidden md:flex items-center gap-8">
           {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item, index) => (
-            <motion.button
+            <motion.a
               key={item}
+              href={`#${item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact'}`}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
@@ -259,13 +264,16 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
                 whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
-            </motion.button>
+            </motion.a>
           ))}
         </div>
 
         <button
+          type="button"
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -280,13 +288,14 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
             className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item) => (
-              <button
+              <a
                 key={item}
+                href={`#${item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact'}`}
                 onClick={() => scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact')}
                 className="block w-full text-left px-6 py-4 text-sm font-body font-300 text-foreground/80 hover:text-foreground transition-colors uppercase tracking-wider border-b border-border/50 last:border-0"
               >
                 {item}
-              </button>
+              </a>
             ))}
           </motion.div>
         )}
@@ -299,6 +308,7 @@ function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-black">
+        <img src="/1.png" alt="Fundo de hero" className="absolute inset-0 w-full h-full object-cover" />
         <motion.video
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -308,6 +318,7 @@ function Hero() {
           muted
           loop
           playsInline
+          preload="metadata"
           poster="/1.png"
         >
           <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" type="video/mp4" />
@@ -319,7 +330,7 @@ function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto"
       >
         <motion.p
           initial={{ opacity: 0 }}
@@ -389,7 +400,7 @@ function Stats() {
   return (
     <section className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <motion.div
@@ -422,7 +433,7 @@ function Services() {
 
   return (
     <section id="services" className="relative py-20 md:py-32 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -488,7 +499,7 @@ function About() {
   return (
     <section id="about" className="relative py-20 md:py-32 bg-card overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-transparent" />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -564,7 +575,7 @@ function Pricing() {
   return (
     <section id="pricing" className="relative py-20 md:py-32 bg-background overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -610,7 +621,7 @@ function ReviewsSection() {
   return (
     <section id="reviews" className="relative py-12 md:py-20 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent" />
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -650,7 +661,7 @@ function ReviewCard({ review }) {
   return (
     <motion.figure
       whileHover={{ y: -4, scale: 1.01 }}
-      className="relative min-w-[18rem] max-w-sm w-full cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:bg-slate-900/90"
+      className="relative min-w-[16rem] max-w-sm w-full cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 p-4 md:p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:bg-slate-900/90"
     >
       <div className="flex items-center gap-3">
         <img
@@ -703,7 +714,7 @@ function Contact() {
   return (
     <section id="contact" className="relative py-20 md:py-32 bg-card overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
-      <div className="max-w-4xl mx-auto px-6 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -799,7 +810,7 @@ function Footer() {
   return (
     <footer className="relative py-16 bg-background border-t border-primary/20">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="font-heading text-2xl italic text-foreground mb-4">Mikaela Dias</h3>

@@ -61,8 +61,23 @@
     display: block;
   }
 
-  button, input, textarea, select {
+  section {
+    scroll-margin-top: 96px;
+  }
+
+  video {
+    max-height: 100vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  body {
+    overscroll-behavior-y: contain;
+  }
+
+  button, a, input, textarea, select {
     font: inherit;
+    touch-action: manipulation;
   }
 }
 
