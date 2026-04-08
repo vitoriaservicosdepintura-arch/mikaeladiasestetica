@@ -1,5 +1,5 @@
 from PIL import Image
-import os
+import colorsys
 
 # Abrir a imagem
 img_path = 'public/logo.webp'
@@ -9,22 +9,20 @@ img = Image.open(img_path)
 img = img.convert('RGBA')
 
 # Obter dados dos pixels
-data = img.getdata()
+width, height = img.size
+pixels = img.load()
 
-# Nova lista de pixels com fundo removido
-new_data = []
-for item in data:
-    r, g, b, a = item[0], item[1], item[2], item[3] if len(item) > 3 else 255
-    
-    # Se o pixel é escuro (preto/muito escuro), tornar transparente
-    # Usar um limiar maior para capturar mais do fundo
-    if r < 100 and g < 100 and b < 100:
-        new_data.append((255, 255, 255, 0))  # Transparente
-    else:
-        new_data.append((r, g, b, a))
+for y in range(height):
+    for x in range(width):
+        r, g, b, a = pixels[x, y]
+        if a == 0:
+            continue
 
-# Atualizar dados da imagem
-img.putdata(new_data)
+        # Converter para HSV para distinguir branco de dourado
+        h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+        
+        if a > 0 and ((r > 220 and g > 220 and b > 220) or (s < 0.15 and v > 0.85)):
+            pixels[x, y] = (255, 255, 255, 0)
 
 # Salvar como PNG
 output_path = 'public/logo.png'
