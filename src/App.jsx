@@ -254,7 +254,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
           <span className="font-heading text-2xl italic text-white hidden sm:block">Mikaela Dias</span>
         </motion.div>
 
-        <div className="hidden md:flex landscape:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item, index) => (
             <motion.a
               key={item}
@@ -279,7 +279,7 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
 
         <button
           type="button"
-          className="md:hidden landscape:hidden text-white"
+          className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={mobileMenuOpen}
@@ -294,17 +294,19 @@ function Navigation({ isScrolled, mobileMenuOpen, setMobileMenuOpen, scrollToSec
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden landscape:hidden bg-background/95 backdrop-blur-md border-b border-border"
+            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             {['Início', 'Sobre', 'Serviços', 'Preços', 'Contacto'].map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact'}`}
-                onClick={() => scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item === 'Início' ? 'hero' : item === 'Sobre' ? 'about' : item === 'Serviços' ? 'services' : item === 'Preços' ? 'pricing' : 'contact');
+                }}
                 className="block w-full text-left px-6 py-4 text-sm font-body font-300 text-foreground/80 hover:text-foreground transition-colors uppercase tracking-wider border-b border-border/50 last:border-0"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </motion.div>
         )}
