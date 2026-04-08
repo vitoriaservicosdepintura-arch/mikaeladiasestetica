@@ -1,69 +1,108 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, MapPin, Phone, Mail, Clock, ChevronDown, Sparkles, Heart, Eye, Wind } from 'lucide-react'
+import FluidCursor from './components/FluidCursor'
+import CursorToggleSection from './components/CursorToggleSection'
+
+const stats = [
+  { value: '500+', label: 'Clientes Satisfeitos' },
+  { value: '5+', label: 'Anos de Experiência' },
+  { value: '1000+', label: 'Tratamentos Realizados' },
+  { value: '4.9', label: 'Avaliação Média' }
+]
 
 const services = [
-  { title: "Tratamentos Faciais", desc: "Limpeza facial, hidratação, anti-aging e tratamentos personalizados para cada tipo de pele.", icon: Sparkles },
-  { title: "Tratamentos Corporais", desc: "Massagens modeladoras, drenagem linfática e tratamentos reductores.", icon: Heart },
-  { title: "Massagens", desc: "Massagens relaxantes, desportivas e terapêuticas para bem-estar integral.", icon: Wind },
-  { title: "Cílios e Sobancelhas", desc: "Extensão de cílios, Design de sobrancelhas e micropigmentação.", icon: Eye },
-  { title: "Massagem com Pedra Quente", desc: "Terapia relaxante com pedras vulcânicas aquecidas que proporcionam alívio muscular profundo.", icon: Wind },
+  {
+    icon: Sparkles,
+    title: 'Tratamentos Faciais',
+    desc: 'Limpeza profunda, hidratação e rejuvenescimento da pele com técnicas avançadas.'
+  },
+  {
+    icon: Heart,
+    title: 'Depilação a Laser',
+    desc: 'Remoção definitiva de pelos com tecnologia de ponta e máxima segurança.'
+  },
+  {
+    icon: Eye,
+    title: 'Design de Sobrancelhas',
+    desc: 'Sobrancelhas perfeitas com micropigmentação e técnicas de modelagem.'
+  },
+  {
+    icon: Wind,
+    title: 'Massagens Relaxantes',
+    desc: 'Massagens terapêuticas para relaxamento e bem-estar geral.'
+  }
 ]
 
 const prices = [
   {
-    category: "Drenagem Linfática", items: [
-      { name: "Por Zona (30min)", price: "30€" },
-      { name: "Corpo Inteiro (60min)", price: "50€" },
+    category: 'Tratamentos Faciais',
+    items: [
+      { name: 'Limpeza de Pele', price: '€45' },
+      { name: 'Hidratação Profunda', price: '€60' },
+      { name: 'Rejuvenescimento', price: '€80' }
     ]
   },
   {
-    category: "Massagem Relaxante", items: [
-      { name: "Por Zona (30min)", price: "30€" },
-      { name: "Corpo Inteiro (60min)", price: "50€" },
+    category: 'Depilação',
+    items: [
+      { name: 'Axilas', price: '€20' },
+      { name: 'Pernas Completas', price: '€50' },
+      { name: 'Sessão Laser', price: '€100' }
     ]
   },
   {
-    category: "Massagem Terapêutica", items: [
-      { name: "Por Zona (30min)", price: "35€" },
+    category: 'Estética',
+    items: [
+      { name: 'Design Sobrancelhas', price: '€25' },
+      { name: 'Micropigmentação', price: '€150' },
+      { name: 'Massagem Relaxante', price: '€40' }
     ]
-  },
-  {
-    category: "Massagem Modeladora", items: [
-      { name: "Por Zona (30min)", price: "35€" },
-    ]
-  },
-  {
-    category: "Massagem Deep Tissue", items: [
-      { name: "Corpo Inteiro (60min)", price: "60€" },
-    ]
-  },
-  {
-    category: "Reflexologia", items: [
-      { name: "30min", price: "25€" },
-    ]
-  },
-  {
-    category: "Massagens Especiais", items: [
-      { name: "Cavitação (Por Zona 30min)", price: "35€" },
-      { name: "Radiofrequência (Por Zona 30min)", price: "35€" },
-      { name: "Vacuoterapia (Por Zona 30min)", price: "35€" },
-      { name: "Massagem com Pedras Quentes (Por Zona 30min)", price: "35€" },
-      { name: "Ventosaterapia (Por Zona 30min)", price: "35€" },
-    ]
-  },
+  }
 ]
 
-const stats = [
-  { value: "2+", label: "Anos de Experiência" },
-  { value: "500+", label: "Clientes Satisfeitos" },
-  { value: "10+", label: "Serviços Diferentes" },
-  { value: "4.9", label: "Avaliação Média" },
-]
+function FloatingCursorToggle({ enabled, onToggle }) {
+  return (
+    <motion.button
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onToggle}
+      className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+      style={{
+        backgroundColor: enabled ? '#D4AF37' : 'rgba(0,0,0,0.6)',
+        border: '2px solid #D4AF37'
+      }}
+      title={enabled ? 'Desativar cursor' : 'Ativar cursor'}
+    >
+      <motion.div
+        animate={{ rotate: enabled ? 180 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {enabled ? (
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+            <path d="M12 2a10 10 0 0 1 10 10"/>
+          </svg>
+        )}
+      </motion.div>
+    </motion.button>
+  )
+}
+
+
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [cursorEnabled, setCursorEnabled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,7 +134,12 @@ function App() {
 
       <Contact />
 
+      <CursorToggleSection />
+
       <Footer />
+
+      <FloatingCursorToggle enabled={cursorEnabled} onToggle={() => setCursorEnabled(!cursorEnabled)} />
+      {cursorEnabled && <FluidCursor />}
 
       <motion.a
         href="https://wa.me/351912808295?text=Olá%20Mikaela,%20gostaria%20de%20mais%20informações"
