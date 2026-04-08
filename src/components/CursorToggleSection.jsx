@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import FluidCursor from './FluidCursor';
 
 const CursorToggleSection = () => {
   const [enabled, setEnabled] = useState(false);
@@ -23,7 +22,6 @@ const CursorToggleSection = () => {
           Hover anywhere
         </span>
       )}
-      {enabled && <FluidCursor />}
     </div>
   );
 };

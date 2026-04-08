@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, MapPin, Phone, Mail, Clock, ChevronDown, Sparkles, Heart, Eye, Wind } from 'lucide-react'
-import FluidCursor from './components/FluidCursor'
 import CursorToggleSection from './components/CursorToggleSection'
 import FluidSimulation from './components/FluidSimulation'
 
@@ -62,48 +61,11 @@ const prices = [
   }
 ]
 
-function FloatingCursorToggle({ enabled, onToggle }) {
-  return (
-    <motion.button
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={onToggle}
-      className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-      style={{
-        backgroundColor: enabled ? '#D4AF37' : 'rgba(0,0,0,0.6)',
-        border: '2px solid #D4AF37'
-      }}
-      title={enabled ? 'Desativar cursor' : 'Ativar cursor'}
-    >
-      <motion.div
-        animate={{ rotate: enabled ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {enabled ? (
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="15" y1="9" x2="9" y2="15"/>
-            <line x1="9" y1="9" x2="15" y2="15"/>
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
-            <path d="M12 2a10 10 0 0 1 10 10"/>
-          </svg>
-        )}
-      </motion.div>
-    </motion.button>
-  )
-}
-
 
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [cursorEnabled, setCursorEnabled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,9 +100,6 @@ function App() {
       <CursorToggleSection />
 
       <Footer />
-
-      <FloatingCursorToggle enabled={cursorEnabled} onToggle={() => setCursorEnabled(!cursorEnabled)} />
-      {cursorEnabled && <FluidCursor />}
 
       <motion.a
         href="https://wa.me/351912808295?text=Olá%20Mikaela,%20gostaria%20de%20mais%20informações"
